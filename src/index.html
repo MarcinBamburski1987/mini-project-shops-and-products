@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <script src="/task/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="/task/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/task/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/task//node_modules/angular-material/angular-material.min.css">
+
+        <script src="/task/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/task//node_modules/angular/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+        <script src="/task//node_modules/angular-material/angular-material.min.js"></script>
+        <script src="/task/src/js/main.js"></script>
+    </head>
+    <body ng-app="checkboxDemo3" ng-cloak layout-margin>
+        <div ng-controller="AppCtrl" class="md-padding demo">
+                <div layout="row" layout-xs="column">
+                    <div flex>
+                        <h2 class="md-title">Products</h2>
+                        <div layout="row" layout-wrap>
+                            <div flex="100" layout="column">
+                                <div>
+                                    <fieldset class="demo-fieldset" >
+                                        <div layout="row" layout-wrap flex>
+                                            <div flex-xs flex="50">
+                                                <md-checkbox aria-label="Select All"
+                                                             ng-checked="isChecked()"
+                                                             md-indeterminate="isIndeterminate()"
+                                                             ng-click="toggleAll()">
+                                                    <span ng-if="isChecked()">Un-</span>Select All
+                                                </md-checkbox>
+                                            </div>
+                                            <div class="demo-select-all-checkboxes" flex="100" ng-repeat="item in items">
+                                                <md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
+                                                    {{ item.prodName }}
+                                                </md-checkbox>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex>
+                        <h2 class="md-title">Shops</h2>
+                        <div>
+                            <div ng-repeat="item in toPrintOnScreen track by $index">
+                                {{ item }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </body>
+</html>
